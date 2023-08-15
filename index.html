@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> CSS Selectors & Specificity Reference</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+
+    </head>
+    <body>
+        <ul class="navigation">
+            <li><a href="#Selectors">CSS Selectors</a></li>
+            <li><a href="#Specificity">Specificity</a></li>
+        </ul>
+
+        <input class="search" class type="search" placeholder="Search CSS Selector">
+        
+        
+
+        <table>
+            <thead>
+                <tr>
+                    <th id="Selectors">CSS Selectors</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                    <th>Rule Set</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="sample">
+                    <td>Type</td>
+                    <td>the type selector matches the type of the element in the HTML document.</td>
+                    <td>The element type is <b>p</b>, which comes from the HTML <b>&ltp></b> element.</td>
+                    <td>
+                        <b>p</b> {color: green;}<br>
+                        <b>h1</b> {color: maroon;}
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Universal</td>
+                    <td>the Universal selector selects all elements of any type</td>
+                    <td>The universal selector uses the <b>*</b> character in the same place where you specified the type selector in a ruleset</td>
+                    <td><b>*</b> {
+                        border: 1px solid red;} <br>
+                        p {color: green;}<br>
+                        h1 {color: maroon;}<br>
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Class</td>
+                    <td>When working with HTML and CSS a class attribute is one of the most common ways to select an element.</td>
+                    <td>To select this element using CSS, we can create a ruleset with a class selector of <b>.brand</b></td>
+                    <td>&ltp class=<b>'brand'</b>>Sole Shoe Company &lt/p><br>
+                        <b>.brand</b> {<br>}
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Multiple Classes</td>
+                    <td>it’s possible to add more than one class name to an HTML element’s class attribute</td>
+                    <td> &lth1 class=<b>'green bold'</b>> ...... &lt/h1></td>
+                    <td><b>.green</b> {color: green;}<br><b>.bold</b> {<br>font-weight: bold;<br>}</td>
+                </tr>
+                <tr class="sample">
+                    <td>ID</td>
+                    <td>If an HTML element needs to be styled uniquely, we can give it an ID using the id attribute.</td>
+                    <td> &lth1 id= <b>'large-title'</b>> ..... &lt/h1></td>
+                    <td><b>#large-title</b> {<br>}</td>
+                </tr>
+                <tr class="sample">
+                    <td>Attribute</td>
+                    <td>The attribute selector can be used to target HTML elements that already contain attributes.</td>
+                    <td>The most basic syntax is an attribute surrounded by square brackets. <br>
+                        <b>&ltimg src='/images/seasons/cold/winter.jpg'></b> <br>
+                        <b>&ltimg src='/images/seasons/warm/summer.jpg'></b> <br>
+                        The HTML code above renders two &ltimg> elements, each containing a src attribute with a value equaling a link to an image file.
+                    </td>
+                    <td><b>[href]</b>{<br>color: magenta;<br>}<br>
+                        <b>img[src*='winter']</b></b> {<br>height: 50px;<br>} <br>
+                        <b>img[src*='summer']</b> {<br>height: 100px;}<br>
+                        The attribute selector is used to target each image individually.
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Pseudo-class</td>
+                    <td>You may have observed how the appearance of certain elements can change, 
+                        or be in a different state, after certain user interactions.</td>
+                    <td>
+                        -When you click on an &ltinput> element, and a blue border is added showing that it is in <i>focus</i>.<br>
+                        -When you click on a blue &lta> link to <i>visit</i> to another page, but when you return the link’s text is purple.<br>
+                        -When you’re filling out a form and the submit button is grayed out and <i>disabled</i>. But when all of the fields have been filled out
+                        , the button has color showing that it’s <i>active</i>. <br>
+                        <b>:focus, :visited, :disabled</b>, and <b>:active</b> are all pseudo-classes.
+                    </td>
+                    <td>A pseudo-class can be attached to any selector. It is always written as a colon : followed by a name. <br>
+                        <b>p:hover</b> {<br> background-color: lime;<br> }  <br>
+                        In the above code, whenever the mouse hovers over a paragraph element, that paragraph will have a lime-colored background.                        
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Classes and IDs</td>
+                    <td>CSS classes are meant to be reused over many elements. By writing CSS classes
+                        , you can style elements in a variety of ways by mixing classes.</td>
+                    <td>a page with two headlines. One headline needs to be bold and blue, and the other needs to be bold and green
+                        . Instead of writing separate CSS rules for each headline that repeat each other’s code, it’s better to write 
+                        a <b>.bold</b> CSS rule, a <b>.green</b> CSS rule, and a <b>.blue</b> CSS rule
+                        . Then you can give one headline the <b>bold green</b> classes, and the other the <b>bold blue</b> classes.<br><br>
+                        While <b>classes</b> are meant to be used many times, an <b>ID</b> is meant to style only one element 
+                    </td>
+                    <td>
+                        <b>.bold</b>{<br>
+                            font-weight: bold;<br>
+                        }<br>
+                        <b>.green</b>{<br>
+                            color: green;<br>
+                        }<br>
+                        <b>.blue</b>{<br>
+                            color: blue;<br>
+                        } <br>
+                        &lth2 <b>class='bold green'</b>> First Headline &lt/h2> <br>
+                        &lth2 <b>class='bold blue'</b>> Second Headline &lt/h2>
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td id="Specificity">Specificity</td>
+                    <td>Specificity is the order by which the browser decides which CSS styles will be displayed.
+                        <br> <b>IDs</b> are the most specific selector in CSS, followed by <b>classes</b>, and finally, <b>type</b>.
+                    </td>
+                    <td>&lth1 class='headline'>Breaking News</h1><br><br>
+                        In the example code to the right, the color of the heading would be set to firebrick
+                        , as the <b>class</b> selector is more specific than the <b>type</b> selector.
+                    </td>
+                    <td><b>h1</b> {<br>
+                        color: red;<br>}<br>
+                       
+                      <b>.headline</b> {<br>
+                        color: firebrick;<br>
+                      } <br></td>
+                </tr>
+                <tr class="sample">
+                    <td>Chaining</td>
+                    <td>This is done by combining multiple selectors, which we will refer to as chaining.</td>
+                    <td>For instance, if there was a special <b>class</b> for <b>&lth1></b> elements, the CSS would look like rule set on the right:</td>
+                    <td><b>h1.special </b>{<br>}</td>
+                </tr>
+                <tr class="sample">
+                    <td>Descendant Combinator</td>
+                    <td>CSS also supports selecting elements that are nested within other HTML elements, also known as descendants.</td>
+                    <td>
+                        &ltul class=<b>'main-list'</b>><br>
+                            <b>&ltli> ... &lt/li><br>
+                            &ltli> ... &lt/li><br>
+                            &ltli> ... &lt/li></b><br>
+                            &lt/ul>
+                    </td>
+                    <td><b>.main-list li </b>{<br><br>}</td>
+                </tr>
+                <tr class="sample">
+                    <td>Chaining and Specificity</td>
+                    <td>Adding more than one tag, class, or ID to a CSS selector increases the specificity of the CSS selector.</td>
+                    <td>Both of these CSS rules on the right define what a <b>&ltp></b> element should look like. Since <b>.main p</b>  has a <b>class</b> and
+                         a <b>p type</b> as its selector, only the <b>&ltp></b> elements inside the <b>.main</b> element will appear red. This occurs despite 
+                         there being another more general rule that states <b>&ltp></b> elements should be blue.</td>
+                    <td><b>p</b> {<br>
+                        color: blue;<br>
+                    }<br>
+                       
+                      <b>.main p</b> {<br>
+                        color: red;<br>
+                      }
+                    </td>
+                </tr>
+                <tr class="sample">
+                    <td>Multiple Selectors</td>
+                    <td>In order to make CSS more concise, it’s possible to add CSS styles to multiple CSS selectors all at once
+                        . This prevents writing repetitive code.</td>
+                    <td><b>h1</b> {<br>font-family: Georgia;<br>}<br> <b>.menu</b> {<br>font-family: Georgia;<br>}<br><br>Instead of writing font-family: Georgia twice for two selectors
+                        , we can separate the selectors by a comma to apply the same style to both, like this example to the right:
+                    </td>
+                    <td><b>h1,</b> <br>
+                        <b>.menu</b> {<br>
+                          font-family: Georgia;<br>
+                        }
+                    </td>
+                </tr>
+                
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+
+
+    </body>
+    
+
+
+
+
+
+
+</html>
